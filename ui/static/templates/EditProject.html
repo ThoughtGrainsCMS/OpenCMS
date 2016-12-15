@@ -1,0 +1,128 @@
+<!--- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///------------------------------------------------------------------------------------------------------------------///
+
+///                                   Copyright © 2015-2017 Thought Grains Solutions.                                ///
+
+///                                               All Rights Reserved.                                               ///
+
+///                                                                                                                  ///
+
+///             This software is the confidential and proprietary information of Thought Grains Solutions.           ///
+
+///                                          (Confidential Information)                                              ///
+
+///  --------------------------------------------------------------------------------------------------------------  ///
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///                                                                                                                  ///
+
+///   File Name   :   EditProject.html                                                                               ///
+
+///   Description :   EditProject.html                                                                               ///
+
+///                                                                                                                  ///
+
+///   Date :   14/06/2016                                          Created By  :   Thoughtgrains Solutions           ///
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --->
+
+<div id="container">
+
+    <div class='breadcrumb-layers'>
+        <div class='inners'>
+            <ul class='cf'>
+                <li>
+                    <a class="projects" href="#projects"><span>1</span><span>Projects</span></a>
+                </li>
+                <li class="active">
+                    <a class="active"><span>2</span><span>Edit Project</span></a>
+                </li>
+                <li>
+                    <a id="Layout" href="#layout"><span>3</span><span>Layout</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="content">
+        <div class="row">
+            <div class="col-sm-offset-1 col-sm-10 content-top">
+                <form action="" name="Editproject" id="Editproject" method="post" autocomplete="on">
+                    <span class="error">&nbsp;</span>
+
+                    <div class="form-group">
+                        <label for="uiname">Project Name:</label>
+                        <input type="text" class="form-control" ng-model="editProjectList.ui_projectname"
+                               id="uiname"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dbname">Database Name:</label>
+                        <input type="text" class="form-control" ng-model="editProjectList.projectname"
+                               readonly="readonly" id="dbname">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="status">Project Status:</label>
+                        <select class="form-control" required="required" ng-model="editProjectList.projectstatus"
+                                id="status">
+                            <option value="">Please select</option>
+                            <option value="On going">On going</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Cancelled">Cancelled</option>
+                            <option value="Pipeline">Pipeline</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="startdate">Project Start date:</label>
+                        <input type="date" class="form-control" ng-model="editProjectList.projectstartdate"
+                               required="required"
+                               id="startdate">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="enddate">Project Completion date:</label>
+                        <input type="date" class="form-control" ng-model="editProjectList.projectcompletiondate"
+                               required="required" id="enddate">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="author">Project Author:</label>
+                        <input type="text" class="form-control" ng-model="editProjectList.projectauthor"
+                               required="required"
+                               id="author">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="details">Project Details:</label>
+                        <textarea class="form-control" rows="5" ng-model="editProjectList.projectdetails"
+                                  id="details"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="hidden" value="1" name="ProjectID"/>
+                        <button type="submit" id="EditProjectbtn" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-primary" id="cancel-btn"
+                                onclick="window.location.href='#projects'">Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer id="footer">
+    <a href="http://www.thoughtgrains.com/">Thought Grains Solutions</a>
+    &copy; 2009-2016 All Rights Reserved.<br/>
+</footer>
+
+<!-- scripts-->
+<script src="js/app/editProject.js"></script>
+<script src="js/lib/tinymce/tinymce.min.js"></script>
+<script>tinymce.init({selector: 'textarea'});</script>
+<!-- scripts-->

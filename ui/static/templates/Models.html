@@ -1,0 +1,98 @@
+<!--- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///------------------------------------------------------------------------------------------------------------------///
+
+///                                   Copyright © 2015-2017 Thought Grains Solutions.                                ///
+
+///                                               All Rights Reserved.                                               ///
+
+///                                                                                                                  ///
+
+///             This software is the confidential and proprietary information of Thought Grains Solutions.           ///
+
+///                                          (Confidential Information)                                              ///
+
+///  --------------------------------------------------------------------------------------------------------------  ///
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///                                                                                                                  ///
+
+///   File Name   :   Models.html                                                                                    ///
+
+///   Description :   Models.html                                                                                    ///
+
+///                                                                                                                  ///
+
+///   Date :   16/06/2016                                          Created By  :   Thoughtgrains Solutions           ///
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --->
+
+<div id="container">
+    <div class='breadcrumb-layers'>
+        <div class='inners'>
+            <ul class='cf'>
+                <li>
+                    <a class="projects" href="#projects"><span>1</span><span>Projects</span></a>
+                </li>
+                <li>
+                    <a class="active" href="#models"><span>2</span><span>Models</span></a>
+                </li>
+                <li>
+                    <a class="entries" href="" style="cursor:not-allowed"><span>3</span><span>Entries</span></a>
+                </li>
+                <li>
+                    <a href="#layout"><span>4</span><span>Layout</span></a>
+                </li>
+                <li class="download-tab">
+                    <a><span>5</span><span>Download</span></a>
+                    <ul class="download-tab-ul">
+                        <li ng-click="downloadProject()">Database</li>
+                        <li ng-click="uiDownload()">UI</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="content">
+        <div class="row">
+            <div class="col-sm-offset-1 col-sm-10 content-top">
+                <div class="col-sm-12">
+                    <a href="" class="new-buttons" ng-click="addModel()">Add new Model</a>
+                </div>
+                <table border="1" class="table" id="ModelList">
+                    <tr>
+                        <td>Model ID</td>
+                        <td>Title</td>
+                        <td>Entries</td>
+                        <td>Action</td>
+                    </tr>
+                    <tr ng-repeat="models in modelsList track by $index">
+                        <td>{{$index + 1}}</td>
+                        <td>{{models.ui_modelname}}</td>
+                        <td>
+                            <a href="" ng-click="viewEntries(models.projectname, models.modelname, models.id)">
+                                View all Entries
+                            </a>
+                        </td>
+                        <td>
+                            <a href="" ng-click="editModel(models.modelname, models.projectname, models.id)">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="" class="delete-button"
+                               ng-click="deleteModel(models.id, models.projectname)">Delete</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer id="footer">
+    <a href="http://www.thoughtgrains.com/">Thought Grains Solutions</a>
+    &copy; 2009-2016 All Rights Reserved.<br/>
+</footer>
+
+<!-- scripts-->
+<script src="js/app/models.js"></script>
+<!-- scripts-->

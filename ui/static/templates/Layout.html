@@ -1,0 +1,1416 @@
+<!--- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///------------------------------------------------------------------------------------------------------------------///
+
+///                                   Copyright © 2015-2017 Thought Grains Solutions.                                ///
+
+///                                               All Rights Reserved.                                               ///
+
+///                                                                                                                  ///
+
+///             This software is the confidential and proprietary information of Thought Grains Solutions.           ///
+
+///                                          (Confidential Information)                                              ///
+
+///  --------------------------------------------------------------------------------------------------------------  ///
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///                                                                                                                  ///
+
+///   File Name   :   Layout.html                                                                                    ///
+
+///   Description :   Layout.html                                                                                    ///
+
+///                                                                                                                  ///
+
+///   Date :   05/07/2016                                          Created By  :   Thoughtgrains Solutions           ///
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --->
+
+<div id="container">
+
+    <div class='breadcrumb-layers'>
+        <div class='inners'>
+            <ul class='cf'>
+                <li>
+                    <a class="projects" href="#projects"><span>1</span><span>Projects</span></a>
+                </li>
+                <li>
+                    <a class="models" href="#models"><span>2</span><span>Models</span></a>
+                </li>
+                <li>
+                    <a class="entries" href="#models"><span>3</span><span>Entries</span></a>
+                </li>
+                <li>
+                    <a class="active"><span>4</span><span>Layout</span></a>
+                </li>
+                <li class="download-tab">
+                    <a><span>5</span><span>Download</span></a>
+                    <ul class="download-tab-ul">
+                        <li ng-click="downloadProject()">Database</li>
+                        <li ng-click="uiDownload()">UI</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="add-new-page">
+        <i class="fa fa-times edit-close" ng-click="addNewPageClose()"></i>
+        <label>New Page Name:</label>
+        <input class="form-control" placeholder="Page Name" ng-model="newPageName">
+        <button class="btn btn-primary edit-save" ng-click="submitNewPage()">
+            Add
+        </button>
+    </div>
+
+    <div id="content">
+        <div class="col-sm-12">
+            <div class="nav-container">
+                <ul class="nav-container-tabs">
+                    <li ng-click="createTab($event)" class="active">
+                        <a href="">Create</a>
+                    </li>
+                    <li ng-click="previewTab($event)">
+                        <a href="">Preview</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="drag-drop-layer">
+                <div class="create-content">
+
+                    <div class="edit-input" ng-switch on="labelContents.fieldType">
+                        <i class="fa fa-times edit-close" ng-click="editClose()" title="Close"></i>
+
+                        <div class="edit-input-form">
+                            <label ng-if="labelContents.fieldType != 'header' && labelContents.fieldType != 'subheader' && labelContents.fieldType != 'textbox'"
+                                    >Label</label>
+
+                            <input ng-switch-when="text" type="text" class="form-control" placeholder=""
+                                   name="{{labelContents.ui_FieldName}}" ng-model="labelContents.ui_FieldName"
+                                   ng-required="true"/>
+
+                            <input ng-switch-when="password" type="text" class="form-control" placeholder=""
+                                   name="{{labelContents.ui_FieldName}}"
+                                   ng-model="labelContents.ui_FieldName"
+                                   ng-required="true">
+
+                            <input ng-switch-when="datetime" type="text" class="form-control" placeholder=""
+                                   name="{{labelContents.ui_FieldName}}" ng-model="labelContents.ui_FieldName"
+                                   ng-required="true">
+
+                            <input ng-switch-when="datetime-local" type="text" class="form-control" placeholder=""
+                                   name="{{labelContents.ui_FieldName}}" ng-model="labelContents.ui_FieldName"
+                                   ng-required="true">
+
+                            <input ng-switch-when="date" type="text" class="form-control" placeholder=""
+                                   name="{{labelContents.ui_FieldName}}" ng-model="labelContents.ui_FieldName"
+                                   ng-required="true">
+
+                            <input ng-switch-when="month" type="text" class="form-control" placeholder=""
+                                   name="{{labelContents.ui_FieldName}}" ng-model="labelContents.ui_FieldName"
+                                   ng-required="true">
+
+                            <input ng-switch-when="time" type="text" class="form-control" placeholder=""
+                                   name="{{labelContents.ui_FieldName}}" ng-model="labelContents.ui_FieldName"
+                                   ng-required="true">
+
+                            <input ng-switch-when="week" type="text" class="form-control" placeholder=""
+                                   name="{{labelContents.ui_FieldName}}" ng-model="labelContents.ui_FieldName"
+                                   ng-required="true">
+
+                            <input ng-switch-when="number" type="text" class="form-control"
+                                   name="{{labelContents.ui_FieldName}}" placeholder=""
+                                   ng-model="labelContents.ui_FieldName"
+                                   ng-required="true">
+
+                            <input ng-switch-when="email" type="text" class="form-control"
+                                   name="{{labelContents.ui_FieldName}}" placeholder=""
+                                   ng-model="labelContents.ui_FieldName"
+                                   ng-required="true">
+
+                            <input ng-switch-when="url" type="text" class="form-control" placeholder=""
+                                   name="{{labelContents.ui_FieldName}}" ng-model="labelContents.ui_FieldName"
+                                   ng-required="true">
+
+                            <input ng-switch-when="tel" type="text" class="form-control" placeholder=""
+                                   name="{{labelContents.ui_FieldName}}" ng-model="labelContents.ui_FieldName"
+                                   ng-required="true">
+
+                            <input ng-switch-when="color" type="text" class="form-control"
+                                   name="{{labelContents.ui_FieldName}}" placeholder=""
+                                   ng-model="labelContents.ui_FieldName"
+                                   ng-required="true">
+
+                            <input ng-switch-when="textarea" type="text" placeholder="" class="form-control"
+                                   name="{{labelContents.ui_FieldName}}" ng-model="labelContents.ui_FieldName"
+                                   ng-required="true">
+
+                            <input ng-switch-when="radio" type="text" placeholder="" class="form-control"
+                                   name="{{labelContents.ui_FieldName}}" ng-model="labelContents.ui_FieldName"
+                                   ng-required="true">
+
+                            <input ng-switch-when="dropdown" type="text" placeholder="" class="form-control"
+                                   name="{{labelContents.ui_FieldName}}" ng-model="labelContents.ui_FieldName"
+                                   ng-required="true">
+
+                            <input ng-switch-when="checkbox" type="text" placeholder="" class="form-control"
+                                   name="{{labelContents.ui_FieldName}}" ng-model="labelContents.ui_FieldName"
+                                   ng-required="true">
+
+                        </div>
+
+                        <div class="edit-input-form">
+                            <label ng-if="labelContents.fieldType == 'dropdown' || labelContents.fieldType == 'checkbox' || labelContents.fieldType == 'radio'">VALUES</label>
+                            <label ng-if="labelContents.fieldType == 'text' || labelContents.fieldType == 'password' || labelContents.fieldType == 'textarea' || labelContents.fieldType == 'email' || labelContents.fieldType == 'url' || labelContents.fieldType == 'tel'">PLACEHOLDER</label>
+
+                            <textarea ng-switch-when="header" class="text-box"
+                                      placeholder="" name="{{labelContents.fieldValue}}"
+                                      ng-model="labelContents.fieldValue"
+                                      ng-required="true" onkeyup="textAreaAdjust(this)"></textarea>
+
+                            <textarea ng-switch-when="subheader" class="text-box"
+                                      placeholder="" name="{{labelContents.fieldValue}}"
+                                      ng-model="labelContents.fieldValue"
+                                      ng-required="true" onkeyup="textAreaAdjust(this)"></textarea>
+
+                            <textarea ng-switch-when="textbox" class="text-box"
+                                      placeholder="" name="{{labelContents.fieldValue}}"
+                                      ng-model="labelContents.fieldValue"
+                                      ng-required="true" onkeyup="textAreaAdjust(this)"></textarea>
+
+                            <input ng-switch-when="text" type="text" class="form-control"
+                                   placeholder="" name="{{labelContents.fieldValue}}"
+                                   ng-model="labelContents.fieldValue"
+                                   ng-required="true"/>
+
+                            <input ng-switch-when="password" type="text" class="form-control"
+                                   name="{{labelContents.fieldValue}}" placeholder=""
+                                   ng-model="labelContents.fieldValue"
+                                   ng-required="true">
+
+                            <input ng-switch-when="datetime" type="datetime" class="form-control"
+                                   name="{{labelContents.fieldValue}}" title="" ng-model="labelContents.fieldDate"
+                                   ng-required="true">
+
+                            <input ng-switch-when="datetime-local" type="datetime-local" placeholder=""
+                                   name="{{labelContents.fieldValue}}" class="form-control"
+                                   ng-model="labelContents.fieldDate"
+                                   ng-required="true">
+
+                            <input ng-switch-when="date" type="date" class="form-control" placeholder=""
+                                   name="{{labelContents.fieldValue}}" ng-model="labelContents.fieldDate"
+                                   ng-required="true">
+
+                            <input ng-switch-when="month" type="month" class="form-control" placeholder=""
+                                   name="{{labelContents.fieldValue}}"
+                                   ng-model="labelContents.fieldDate"
+                                   ng-required="true">
+
+                            <input ng-switch-when="time" type="time" class="form-control" placeholder=""
+                                   name="{{labelContents.fieldValue}}" ng-model="labelContents.fieldTime"
+                                   ng-required="true">
+
+                            <input ng-switch-when="week" type="week" class="form-control" placeholder=""
+                                   name="{{labelContents.fieldValue}}" ng-model="labelContents.fieldWeek"
+                                   ng-required="true">
+
+                            <input ng-switch-when="number" type="number" class="form-control"
+                                   name="{{labelContents.fieldValue}}" placeholder=""
+                                   ng-model="labelContents.fieldNumber"
+                                   ng-required="true">
+
+                            <input ng-switch-when="email" type="email" class="form-control"
+                                   name="{{labelContents.fieldValue}}" placeholder=""
+                                   ng-model="labelContents.fieldValue"
+                                   ng-required="true">
+
+                            <input ng-switch-when="url" type="url" class="form-control" placeholder=""
+                                   name="{{labelContents.fieldValue}}" ng-model="labelContents.fieldValue"
+                                   ng-required="true">
+
+                            <input ng-switch-when="tel" type="tel" class="form-control" placeholder=""
+                                   name="{{labelContents.fieldValue}}" ng-model="labelContents.fieldValue"
+                                   ng-required="true">
+
+                            <input ng-switch-when="color" type="color" class="form-control"
+                                   name="{{labelContents.fieldValue}}" placeholder=""
+                                   ng-value="labelContents.fieldValue"
+                                   ng-required="true">
+
+                            <textarea ng-switch-when="textarea" class="form-control"
+                                      name="{{labelContents.fieldValue}}" ng-model="labelContents.fieldValue"
+                                      ng-required="true" title="" onkeyup="textAreaAdjust(this)"></textarea>
+
+                            <input ng-switch-when="radio" placeholder="" class="form-control"
+                                   name="{{labelContents.fieldOptions}}"
+                                   type="text" ng-model="labelContents.fieldOptions">
+
+                            <input ng-switch-when="dropdown" placeholder="" class="form-control"
+                                   name="{{labelContents.fieldOptions}}"
+                                   type="text" ng-model="labelContents.fieldOptions">
+
+                            <input ng-switch-when="checkbox" placeholder="" class="form-control"
+                                   name="{{labelContents.fieldOptions}}"
+                                   type="text" ng-model="labelContents.fieldOptions">
+
+                        </div>
+                        <div class="edit-input-form">
+                            <label ng-if="labelContents.fieldType == 'text' || labelContents.fieldType == 'password' || labelContents.fieldType == 'textarea' || labelContents.fieldType == 'email' || labelContents.fieldType == 'url' || labelContents.fieldType == 'tel'">VALUE</label>
+                            <input ng-switch-when="text" type="text" class="form-control" placeholder=""
+                                   name="{{labelContents.ui_FieldName}}" ng-model="labelContents.inputValue"
+                                   ng-required="true"/>
+                            <input ng-switch-when="password" type="text" class="form-control" placeholder=""
+                                   name="{{labelContents.ui_FieldName}}" ng-model="labelContents.inputValue"
+                                   ng-required="true"/>
+                            <input ng-switch-when="textarea" type="text" class="form-control" placeholder=""
+                                   name="{{labelContents.ui_FieldName}}" ng-model="labelContents.inputValue"
+                                   ng-required="true"/>
+                            <input ng-switch-when="email" type="text" class="form-control" placeholder=""
+                                   name="{{labelContents.ui_FieldName}}" ng-model="labelContents.inputValue"
+                                   ng-required="true"/>
+                            <input ng-switch-when="url" type="text" class="form-control" placeholder=""
+                                   name="{{labelContents.ui_FieldName}}" ng-model="labelContents.inputValue"
+                                   ng-required="true"/>
+                            <input ng-switch-when="tel" type="text" class="form-control" placeholder=""
+                                   name="{{labelContents.ui_FieldName}}" ng-model="labelContents.inputValue"
+                                   ng-required="true"/>
+                        </div>
+
+                        <button class="btn btn-primary edit-save"
+                                ng-click="layoutEdit(labelContents.ui_FieldName, labelContents.fieldValue,labelContents.fieldType,labelContents.fieldOptions,labelContents.projectName,labelContents.fieldDate,labelContents.fieldNumber,labelContents.fieldTime, labelContents.fieldWeek,labelContents.inputValue)">
+                            Save
+                        </button>
+                    </div>
+
+                    <div class="link-control">
+                        <i class="fa fa-times edit-close" ng-click="linkClose()" title="Close"></i>
+
+                        <div ng-click="modelSection($event)" class="link-side-header">
+                            <h6 class="menu-layer-title">
+                                <span>Drag Area</span>
+                            </h6>
+                        </div>
+
+                        <div ng-repeat="(key,value) in modelList track by $index" ng-click="modelLayerSection($event)"
+                             class="drag-side-header">
+                            <h6 class="menu-layer-title">
+                                <span>{{key}}</span>
+                            </h6>
+                            <i class="fa fa-chevron-down"></i>
+
+                            <div class="link-section">
+                                <div ng-repeat="fields in value track by $index" ng-switch
+                                     on="fields.fieldtype" class="link-layer">
+
+                                    <div ng-switch-when="header" class="entry-layer-header entry-list link-drag"
+                                         data-id="{{$index}}" data-key="{{fields.modelname}}">
+                                        <div class="entry-layer-title link-text-input">
+                                            <h6 class='content-input'>
+                                                {{fields.fieldvalue}}</h6>
+                                        </div>
+                                    </div>
+
+                                    <div ng-switch-when="subheader" class="entry-layer-header entry-list link-drag"
+                                         data-id="{{$index}}" data-key="{{fields.modelname}}">
+                                        <div class="entry-layer-title link-text-input">
+                                            <h6 class='content-input'>
+                                                {{fields.fieldvalue}}</h6>
+                                        </div>
+                                    </div>
+
+                                    <div ng-switch-when="textbox" class="entry-layer-header entry-list link-drag" \
+                                         data-id="{{$index}}" data-key="{{fields.modelname}}">
+                                        <div class="entry-layer-title link-text-input">
+                                            <textarea class='text-box drag-input' placeholder=''
+                                                      readonly required=''>{{fields.fieldvalue}}</textarea>
+                                        </div>
+                                    </div>
+
+                                    <div ng-switch-when="text" class="entry-layer-header entry-list link-drag" \
+                                         data-id="{{$index}}" data-key="{{fields.modelname}}">
+                                        <div class="entry-layer-title link-text-input">
+                                            <label ng-bind="fields.ui_fieldname"
+                                                   class="field-label drag-input"
+                                                   data-fieldname="{{fields.fieldname}}"></label>
+                                            <input class='content-input drag-input'
+                                                   placeholder='{{fields.fieldoptions}}'
+                                                   type='text' required='' readonly/>
+                                        </div>
+                                    </div>
+
+                                    <div ng-switch-when="dropdown" class="entry-layer-header entry-list link-drag"
+                                         data-id="{{$index}}" data-key="{{fields.modelname}}">
+                                        <div class="entry-layer-title link-text-input">
+                                            <label ng-bind="fields.ui_fieldname"
+                                                   class="field-label drag-input"
+                                                   data-fieldname="{{fields.fieldname}}"></label>
+                                            <select name="fields.fieldname"
+                                                    class="form-control drag-input" title=""
+                                                    readonly>
+                                                <option ng-repeat="opt in fields.fieldoptions track by $index">
+                                                    {{opt}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div ng-switch-when="textarea" class="entry-layer-header entry-list link-drag"
+                                         data-id="{{$index}}" data-key="{{fields.modelname}}">
+                                        <div class='entry-layer-title link-text-input'>
+                                            <label ng-bind="fields.ui_fieldname"
+                                                   class="field-label drag-input"
+                                                   data-fieldname="{{fields.fieldname}}"></label>
+                                            <textarea class='content-area drag-input' placeholder=''
+                                                      readonly required=''>{{fields.fieldvalue}}</textarea>
+                                        </div>
+                                    </div>
+
+                                    <div ng-switch-when="password" class="entry-layer-header entry-list link-drag"
+                                         data-id="{{$index}}" data-key="{{fields.modelname}}">
+                                        <div class='entry-layer-title link-text-input'>
+                                            <label ng-bind="fields.ui_fieldname"
+                                                   class="field-label drag-input"
+                                                   data-fieldname="{{fields.fieldname}}"></label>
+                                            <input class='content-input drag-input'
+                                                   placeholder='{{fields.fieldvalue}}'
+                                                   type='password' readonly required=''/>
+                                        </div>
+                                    </div>
+
+                                    <div ng-switch-when="datetime" class="entry-layer-header entry-list link-drag"
+                                         data-id="{{$index}}" data-key="{{fields.modelname}}">
+                                        <div class='entry-layer-title link-text-input'>
+                                            <label ng-bind="fields.ui_fieldname"
+                                                   class="field-label drag-input"
+                                                   data-fieldname="{{fields.fieldname}}"></label>
+                                            <input class='content-input drag-input' readonly
+                                                   type='datetime' ng-value="fields.fieldvalue"
+                                                   required='' title=""/>
+                                        </div>
+                                    </div>
+
+                                    <div ng-switch-when="datetime-local"
+                                         class="entry-layer-header entry-list link-drag" data-id="{{$index}}"
+                                         data-key="{{fields.modelname}}">
+                                        <div class='entry-layer-title link-text-input'>
+                                            <label ng-bind="fields.ui_fieldname"
+                                                   class="field-label drag-input"
+                                                   data-fieldname="{{fields.fieldname}}"></label>
+                                            <input class='content-input drag-input' readonly
+                                                   type='datetime-local' ng-model="fields.fielddate"
+                                                   required='' title=""/>
+                                        </div>
+                                    </div>
+
+                                    <div ng-switch-when="date" class="entry-layer-header entry-list link-drag">
+                                        <div class='link-text-input' data-id="{{$index}}"
+                                             data-key="{{fields.modelname}}">
+                                            <label ng-bind="fields.ui_fieldname"
+                                                   class="field-label drag-input"
+                                                   data-fieldname="{{fields.fieldname}}"></label>
+                                            <input class='content-input drag-input' readonly
+                                                   type='date' ng-value="fields.fieldvalue" required=''
+                                                   title=""/>
+                                        </div>
+                                    </div>
+
+                                    <div ng-switch-when="month" class="entry-layer-header entry-list link-drag">
+                                        <div class='link-text-input' data-id="{{$index}}"
+                                             data-key="{{fields.modelname}}">
+                                            <label ng-bind="fields.ui_fieldname"
+                                                   class="field-label drag-input"
+                                                   data-fieldname="{{fields.fieldname}}"></label>
+                                            <input class='content-input drag-input' readonly
+                                                   type='month' ng-value="fields.fieldvalue" required=''
+                                                   title=""/>
+                                        </div>
+                                    </div>
+
+                                    <div ng-switch-when="time" class="entry-layer-header entry-list link-drag">
+                                        <div class='link-text-input' data-id="{{$index}}"
+                                             data-key="{{fields.modelname}}">
+                                            <label ng-bind="fields.ui_fieldname"
+                                                   class="field-label drag-input"
+                                                   data-fieldname="{{fields.fieldname}}"></label>
+                                            <input class='content-input drag-input' readonly
+                                                   type='time' ng-value="fields.fieldvalue" required=''
+                                                   title=""/>
+                                        </div>
+                                    </div>
+
+                                    <div ng-switch-when="week" class="entry-layer-header entry-list link-drag">
+                                        <div class='link-text-input' data-id="{{$index}}"
+                                             data-key="{{fields.modelname}}">
+                                            <label ng-bind="fields.ui_fieldname"
+                                                   class="field-label drag-input"
+                                                   data-fieldname="{{fields.fieldname}}"></label>
+                                            <input class='content-input drag-input' readonly
+                                                   type='week' ng-value="fields.fieldvalue" required=''
+                                                   title=""/>
+                                        </div>
+                                    </div>
+
+                                    <div ng-switch-when="number" class="entry-layer-header entry-list link-drag">
+                                        <div class='link-text-input' data-id="{{$index}}"
+                                             data-key="{{fields.modelname}}">
+                                            <label ng-bind="fields.ui_fieldname"
+                                                   class="field-label drag-input"
+                                                   data-fieldname="{{fields.fieldname}}"></label>
+                                            <input class='content-input drag-input' readonly
+                                                   type='number' ng-value="fields.fieldnumber"
+                                                   required=''
+                                                   title=""/>
+                                        </div>
+                                    </div>
+
+                                    <div ng-switch-when="email" class="entry-layer-header entry-list link-drag">
+                                        <div class='link-text-input' data-id="{{$index}}"
+                                             data-key="{{fields.modelname}}">
+                                            <label ng-bind="fields.ui_fieldname"
+                                                   class="field-label drag-input"
+                                                   data-fieldname="{{fields.fieldname}}"></label>
+                                            <input readonly class='content-input drag-input'
+                                                   type='email' ng-value="fields.fieldvalue" required=''
+                                                   title=""/>
+                                        </div>
+                                    </div>
+
+                                    <div ng-switch-when="url" class="entry-layer-header entry-list link-drag">
+                                        <div class='link-text-input' data-id="{{$index}}"
+                                             data-key="{{fields.modelname}}">
+                                            <label ng-bind="fields.ui_fieldname"
+                                                   class="field-label drag-input"
+                                                   data-fieldname="{{fields.fieldname}}"></label>
+                                            <input class='content-input drag-input' readonly
+                                                   type='url' ng-value="fields.fieldvalue" required=''
+                                                   title=""/>
+                                        </div>
+                                    </div>
+
+                                    <div ng-switch-when="tel" class="entry-layer-header entry-list link-drag">
+                                        <div class='link-text-input' data-id="{{$index}}"
+                                             data-key="{{fields.modelname}}">
+                                            <label ng-bind="fields.ui_fieldname"
+                                                   class="field-label drag-input"
+                                                   data-fieldname="{{fields.fieldname}}"></label>
+                                            <input class='content-input drag-input' readonly
+                                                   type='tel' ng-value="fields.fieldvalue" required=''
+                                                   title=""/>
+                                        </div>
+                                    </div>
+
+                                    <div ng-switch-when="color" class="entry-layer-header entry-list link-drag">
+                                        <div class='link-text-input' data-id="{{$index}}"
+                                             data-key="{{fields.modelname}}">
+                                            <label ng-bind="fields.ui_fieldname"
+                                                   class="field-label drag-input"
+                                                   data-fieldname="{{fields.fieldname}}"></label>
+                                            <input class='content-input drag-input' readonly
+                                                   type='color' ng-value="fields.fieldvalue" required=''
+                                                   title=""/>
+                                        </div>
+                                    </div>
+
+                                    <div ng-switch-when="radio" class="entry-layer-header entry-list link-drag">
+                                        <div class='content-radios' data-id="{{$index}}"
+                                             data-key="{{fields.modelname}}">
+                                            <label ng-bind="fields.ui_fieldname"
+                                                   class="field-label drag-input"
+                                                   data-fieldname="{{fields.fieldname}}"></label>
+                                            <ul>
+                                                <li ng-repeat="opt in fields.fieldoptions track by $index"
+                                                    class="drag-input">
+                                                    <label class="drag-input">
+                                                        <input readonly type='radio'
+                                                               name='radio'
+                                                               value='{{opt}}'>
+                                                        <span></span> {{opt}}
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div ng-switch-when="checkbox" class="entry-layer-header entry-list link-drag">
+                                        <div class='content-checkbox' data-id="{{$index}}"
+                                             data-key="{{fields.modelname}}">
+                                            <label ng-bind="fields.ui_fieldname"
+                                                   class="field-label drag-input"
+                                                   data-fieldname="{{fields.fieldname}}"></label>
+                                            <ul>
+                                                <li ng-repeat="opt in fields.fieldoptions track by $index"
+                                                    class="drag-input">
+                                                    <label class="drag-input">
+                                                        <input readonly type='checkbox'
+                                                               name='radio' value='{{opt}}'>
+                                                        <span></span> {{opt}}
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="menu-layer">
+
+                        <div class="page-menu">
+                            <div class="drag-side-header" id="pages-section" ng-click="pageSection($event)">
+                                <h6 class="menu-layer-title">
+                                    <span ng-bind="selectedPage">Pages</span>
+                                </h6>
+                                <i class="fa fa-chevron-down"></i>
+                            </div>
+                            <div class="pages-section-body">
+                                <div class="menu-layer-header" ng-click="selectPage($event, pages.pageid)"
+                                     ng-repeat="pages in pagesList track by $index">
+                                    <h6 class="menu-layer-title">
+                                        <span ng-bind="pages.pagename"></span>
+                                    </h6>
+                                    <i class="fa fa-trash-o remove-page"
+                                       ng-click="removePage($index,pages.pagename, pages.pageid)"></i>
+                                </div>
+
+                                <div class="page-menu-button-header">
+                                    <button class="btn btn-primary new-page" ng-click="addNewPage()">
+                                        +
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-------------------------------entries-------------------------------->
+                        <div class="entries-sect">
+
+                            <div id="input-header">
+                                <div class="drag-side-header" ng-click="entryLink($event)">
+                                    <h6 class="menu-layer-title">
+                                        <span>Headers:</span>
+                                    </h6>
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+
+                                <div class="entry-section">
+                                    <div ng-repeat="fields in entryList track by $index" ng-switch
+                                         on="fields.fieldtype">
+                                        <div ng-switch-when="header" class="entry-layer-header entry-list">
+                                            <div class="entry-layer-title content-text-input" data-drag="true"
+                                                 data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"
+                                                 ng-model="entryList"
+                                                 jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">
+                                                <h4 class='content-input'>
+                                                    {{fields.fieldvalue}}</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="input-subheader">
+                                <div class="drag-side-header" ng-click="entryLink($event)">
+                                    <h6 class="menu-layer-title">
+                                        <span>Sub Headers:</span>
+                                    </h6>
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+
+                                <div class="entry-section">
+                                    <div ng-repeat="fields in entryList track by $index" ng-switch
+                                         on="fields.fieldtype">
+                                        <div ng-switch-when="subheader" class="entry-layer-header entry-list">
+                                            <div class="entry-layer-title content-text-input" data-drag="true"
+                                                 data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"
+                                                 ng-model="entryList"
+                                                 jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">
+                                                <h4 class='content-input'>
+                                                    {{fields.fieldvalue}}</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="input-textbox">
+                                <div class="drag-side-header" ng-click="entryLink($event)">
+                                    <h6 class="menu-layer-title">
+                                        <span>Text Box:</span>
+                                    </h6>
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+
+                                <div class="entry-section">
+                                    <div ng-repeat="fields in entryList track by $index" ng-switch
+                                         on="fields.fieldtype">
+                                        <div ng-switch-when="textbox" class="entry-layer-header entry-list">
+                                            <div class="entry-layer-title content-text-input" data-drag="true"
+                                                 data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"
+                                                 ng-model="entryList"
+                                                 jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">
+                                                <textarea class='text-box drag-input' placeholder=''
+                                                          readonly
+                                                          required=''>{{fields.fieldvalue}}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="input-text">
+                                <div class="drag-side-header" ng-click="entryLink($event)">
+                                    <h6 class="menu-layer-title">
+                                        <span>Text Inputs:</span>
+                                    </h6>
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+
+                                <div class="entry-section">
+                                    <div ng-repeat="fields in entryList track by $index" ng-switch
+                                         on="fields.fieldtype">
+                                        <div ng-switch-when="text" class="entry-layer-header entry-list">
+                                            <div class="entry-layer-title content-text-input" data-drag="true"
+                                                 data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"
+                                                 ng-model="entryList"
+                                                 jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">
+                                                <label ng-bind="fields.ui_fieldname"
+                                                       class="field-label drag-input"
+                                                       data-fieldname="{{fields.fieldname}}"></label>
+                                                <input class='content-input drag-input'
+                                                       placeholder='{{fields.fieldvalue}}'
+                                                       type='text' required=''/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="dropdown">
+                                <div ng-click="entryLink($event)" class="drag-side-header">
+                                    <h6 class="menu-layer-title">
+                                        <span>Dropdowns:</span>
+                                    </h6>
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+
+                                <div class="entry-section">
+                                    <div ng-repeat="fields in entryList track by $index" ng-switch
+                                         on="fields.fieldtype">
+                                        <div ng-switch-when="dropdown" class="entry-layer-header entry-list">
+                                            <div class="entry-layer-title content-text-input" data-drag="true"
+                                                 data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"
+                                                 ng-model="entryList"
+                                                 jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">
+                                                <label ng-bind="fields.ui_fieldname"
+                                                       class="field-label drag-input"
+                                                       data-fieldname="{{fields.fieldname}}"></label>
+                                                <select name="fields.fieldname"
+                                                        class="form-control drag-input" title=""
+                                                        readonly>
+                                                    <option ng-repeat="opt in fields.fieldoptions track by $index">
+                                                        {{opt}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="text-area">
+                                <div ng-click="entryLink($event)" class="drag-side-header">
+                                    <h6 class="menu-layer-title">
+                                        <span>Text Areas:</span>
+                                    </h6>
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+
+                                <div class="entry-section">
+                                    <div ng-repeat="fields in entryList track by $index" ng-switch
+                                         on="fields.fieldtype">
+                                        <div ng-switch-when="textarea" class="entry-layer-header entry-list">
+                                            <div class='content-text-input' data-drag="true"
+                                                 data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"
+                                                 ng-model="entryList"
+                                                 jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">
+                                                <label ng-bind="fields.ui_fieldname"
+                                                       class="field-label drag-input"
+                                                       data-fieldname="{{fields.fieldname}}"></label>
+                                            <textarea class='content-area drag-input' placeholder=''
+                                                      readonly required=''>{{fields.fieldvalue}}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="input-password">
+                                <div ng-click="entryLink($event)" class="drag-side-header">
+                                    <h6 class="menu-layer-title">
+                                        <span>Password Inputs:</span>
+                                    </h6>
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+
+                                <div class="entry-section">
+                                    <div ng-repeat="fields in entryList track by $index" ng-switch
+                                         on="fields.fieldtype">
+                                        <div ng-switch-when="password" class="entry-layer-header entry-list">
+                                            <div class='content-text-input' data-drag="true"
+                                                 data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"
+                                                 ng-model="entryList"
+                                                 jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">
+                                                <label ng-bind="fields.ui_fieldname"
+                                                       class="field-label drag-input"
+                                                       data-fieldname="{{fields.fieldname}}"></label>
+                                                <input class='content-input drag-input'
+                                                       placeholder='{{fields.fieldvalue}}'
+                                                       type='password' readonly required=''/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="input-datetime">
+                                <div ng-click="entryLink($event)" class="drag-side-header">
+                                    <h6 class="menu-layer-title">
+                                        <span>DateTime Inputs:</span>
+                                    </h6>
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+
+                                <div class="entry-section">
+                                    <div ng-repeat="fields in entryList track by $index" ng-switch
+                                         on="fields.fieldtype">
+                                        <div ng-switch-when="datetime" class="entry-layer-header entry-list">
+                                            <div class='content-text-input' data-drag="true"
+                                                 data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"
+                                                 ng-model="entryList"
+                                                 jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">
+                                                <label ng-bind="fields.ui_fieldname"
+                                                       class="field-label drag-input"
+                                                       data-fieldname="{{fields.fieldname}}"></label>
+                                                <input class='content-input drag-input' readonly
+                                                       type='datetime' ng-value="fields.fieldvalue"
+                                                       required='' title=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="input-datetimelocal">
+                                <div ng-click="entryLink($event)" class="drag-side-header">
+                                    <h6 class="menu-layer-title">
+                                        <span>DateTime-Local Inputs:</span>
+                                    </h6>
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+
+                                <div class="entry-section">
+                                    <div ng-repeat="fields in entryList track by $index" ng-switch
+                                         on="fields.fieldtype">
+                                        <div ng-switch-when="datetime-local" class="entry-layer-header entry-list">
+                                            <div class='content-text-input' data-drag="true"
+                                                 data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"
+                                                 ng-model="entryList"
+                                                 jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">
+                                                <label ng-bind="fields.ui_fieldname"
+                                                       class="field-label drag-input"
+                                                       data-fieldname="{{fields.fieldname}}"></label>
+                                                <input class='content-input drag-input' readonly
+                                                       type='datetime-local' ng-value="fields.fieldvalue"
+                                                       required='' title=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="input-date">
+                                <div ng-click="entryLink($event)" class="drag-side-header">
+                                    <h6 class="menu-layer-title">
+                                        <span>Date Inputs:</span>
+                                    </h6>
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+
+                                <div class="entry-section">
+                                    <div ng-repeat="fields in entryList track by $index" ng-switch
+                                         on="fields.fieldtype">
+                                        <div ng-switch-when="date" class="entry-layer-header entry-list">
+                                            <div class='content-text-input' data-drag="true"
+                                                 data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"
+                                                 ng-model="entryList"
+                                                 jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">
+                                                <label ng-bind="fields.ui_fieldname"
+                                                       class="field-label drag-input"
+                                                       data-fieldname="{{fields.fieldname}}"></label>
+                                                <input class='content-input drag-input' readonly
+                                                       type='date' ng-value="fields.fieldvalue" required=''
+                                                       title=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="input-month">
+                                <div ng-click="entryLink($event)" class="drag-side-header">
+                                    <h6 class="menu-layer-title">
+                                        <span>Month Inputs:</span>
+                                    </h6>
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+
+                                <div class="entry-section">
+                                    <div ng-repeat="fields in entryList track by $index" ng-switch
+                                         on="fields.fieldtype">
+                                        <div ng-switch-when="month" class="entry-layer-header entry-list">
+                                            <div class='content-text-input' data-drag="true"
+                                                 data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"
+                                                 ng-model="entryList"
+                                                 jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">
+                                                <label ng-bind="fields.ui_fieldname"
+                                                       class="field-label drag-input"
+                                                       data-fieldname="{{fields.fieldname}}"></label>
+                                                <input class='content-input drag-input' readonly
+                                                       type='month' ng-value="fields.fieldvalue" required=''
+                                                       title=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="input-time">
+                                <div ng-click="entryLink($event)" class="drag-side-header">
+                                    <h6 class="menu-layer-title">
+                                        <span>Time Inputs:</span>
+                                    </h6>
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+
+                                <div class="entry-section">
+                                    <div ng-repeat="fields in entryList track by $index" ng-switch
+                                         on="fields.fieldtype">
+                                        <div ng-switch-when="time" class="entry-layer-header entry-list">
+                                            <div class='content-text-input' data-drag="true"
+                                                 data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"
+                                                 ng-model="entryList"
+                                                 jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">
+                                                <label ng-bind="fields.ui_fieldname"
+                                                       class="field-label drag-input"
+                                                       data-fieldname="{{fields.fieldname}}"></label>
+                                                <input class='content-input drag-input' readonly
+                                                       type='time' ng-value="fields.fieldvalue" required=''
+                                                       title=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="input-week">
+                                <div ng-click="entryLink($event)" class="drag-side-header">
+                                    <h6 class="menu-layer-title">
+                                        <span>Week Inputs:</span>
+                                    </h6>
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+
+                                <div class="entry-section">
+                                    <div ng-repeat="fields in entryList track by $index" ng-switch
+                                         on="fields.fieldtype">
+                                        <div ng-switch-when="week" class="entry-layer-header entry-list">
+                                            <div class='content-text-input' data-drag="true"
+                                                 data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"
+                                                 ng-model="entryList"
+                                                 jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">
+                                                <label ng-bind="fields.ui_fieldname"
+                                                       class="field-label drag-input"
+                                                       data-fieldname="{{fields.fieldname}}"></label>
+                                                <input class='content-input drag-input' readonly
+                                                       type='week' ng-value="fields.fieldvalue" required=''
+                                                       title=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="input-number">
+                                <div ng-click="entryLink($event)" class="drag-side-header">
+                                    <h6 class="menu-layer-title">
+                                        <span>Number Inputs:</span>
+                                    </h6>
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+
+                                <div class="entry-section">
+                                    <div ng-repeat="fields in entryList track by $index" ng-switch
+                                         on="fields.fieldtype">
+                                        <div ng-switch-when="number" class="entry-layer-header entry-list">
+                                            <div class='content-text-input' data-drag="true"
+                                                 data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"
+                                                 ng-model="entryList"
+                                                 jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">
+                                                <label ng-bind="fields.ui_fieldname"
+                                                       class="field-label drag-input"
+                                                       data-fieldname="{{fields.fieldname}}"></label>
+                                                <input class='content-input drag-input' readonly
+                                                       type='number' ng-value="fields.fieldnumber"
+                                                       required=''
+                                                       title=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="input-email">
+                                <div ng-click="entryLink($event)" class="drag-side-header">
+                                    <h6 class="menu-layer-title">
+                                        <span>Email Inputs:</span>
+                                    </h6>
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+
+                                <div class="entry-section">
+                                    <div ng-repeat="fields in entryList track by $index" ng-switch
+                                         on="fields.fieldtype">
+                                        <div ng-switch-when="email" class="entry-layer-header entry-list">
+                                            <div class='content-text-input' data-drag="true"
+                                                 data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"
+                                                 ng-model="entryList"
+                                                 jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">
+                                                <label ng-bind="fields.ui_fieldname"
+                                                       class="field-label drag-input"
+                                                       data-fieldname="{{fields.fieldname}}"></label>
+                                                <input readonly class='content-input drag-input'
+                                                       type='email' ng-value="fields.fieldvalue" required=''
+                                                       title=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="input-url">
+                                <div ng-click="entryLink($event)" class="drag-side-header">
+                                    <h6 class="menu-layer-title">
+                                        <span>Url Inputs:</span>
+                                    </h6>
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+
+                                <div class="entry-section">
+                                    <div ng-repeat="fields in entryList track by $index" ng-switch
+                                         on="fields.fieldtype">
+                                        <div ng-switch-when="url" class="entry-layer-header entry-list">
+                                            <div class='content-text-input' data-drag="true"
+                                                 data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"
+                                                 ng-model="entryList"
+                                                 jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">
+                                                <label ng-bind="fields.ui_fieldname"
+                                                       class="field-label drag-input"
+                                                       data-fieldname="{{fields.fieldname}}"></label>
+                                                <input class='content-input drag-input' readonly
+                                                       type='url' ng-value="fields.fieldvalue" required=''
+                                                       title=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="input-tel">
+                                <div ng-click="entryLink($event)" class="drag-side-header">
+                                    <h6 class="menu-layer-title">
+                                        <span>Tel Inputs:</span>
+                                    </h6>
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+
+                                <div class="entry-section">
+                                    <div ng-repeat="fields in entryList track by $index" ng-switch
+                                         on="fields.fieldtype">
+                                        <div ng-switch-when="tel" class="entry-layer-header entry-list">
+                                            <div class='content-text-input' data-drag="true"
+                                                 data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"
+                                                 ng-model="entryList"
+                                                 jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">
+                                                <label ng-bind="fields.ui_fieldname"
+                                                       class="field-label drag-input"
+                                                       data-fieldname="{{fields.fieldname}}"></label>
+                                                <input class='content-input drag-input' readonly
+                                                       type='tel' ng-value="fields.fieldvalue" required=''
+                                                       title=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="input-color">
+                                <div ng-click="entryLink($event)" class="drag-side-header">
+                                    <h6 class="menu-layer-title">
+                                        <span>Color Inputs:</span>
+                                    </h6>
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+
+                                <div class="entry-section">
+                                    <div ng-repeat="fields in entryList track by $index" ng-switch
+                                         on="fields.fieldtype">
+                                        <div ng-switch-when="color" class="entry-layer-header entry-list">
+                                            <div class='content-text-input' data-drag="true"
+                                                 data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"
+                                                 ng-model="entryList"
+                                                 jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">
+                                                <label ng-bind="fields.ui_fieldname"
+                                                       class="field-label drag-input"
+                                                       data-fieldname="{{fields.fieldname}}"></label>
+                                                <input class='content-input drag-input' readonly
+                                                       type='color' ng-value="fields.fieldvalue" required=''
+                                                       title=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="input-radio">
+                                <div ng-click="entryLink($event)" class="drag-side-header">
+                                    <h6 class="menu-layer-title">
+                                        <span>Radio Inputs:</span>
+                                    </h6>
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+
+                                <div class="entry-section">
+                                    <div ng-repeat="fields in entryList track by $index" ng-switch
+                                         on="fields.fieldtype">
+                                        <div ng-switch-when="radio" class="entry-layer-header entry-list">
+                                            <div class='content-radios' data-drag="true"
+                                                 data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"
+                                                 ng-model="entryList"
+                                                 jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">
+                                                <label ng-bind="fields.ui_fieldname"
+                                                       class="field-label drag-input"
+                                                       data-fieldname="{{fields.fieldname}}"></label>
+                                                <ul id="radio-list">
+                                                    <li ng-repeat="opt in fields.fieldoptions track by $index"
+                                                        class="drag-input">
+                                                        <label class="drag-input">
+                                                            <input readonly type='radio'
+                                                                   name='radio'
+                                                                   value='{{opt}}'>
+                                                            <span></span> {{opt}}
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="input-checkbox">
+                                <div ng-click="entryLink($event)" class="drag-side-header">
+                                    <h6 class="menu-layer-title">
+                                        <span>Checkbox Inputs:</span>
+                                    </h6>
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+
+                                <div class="entry-section">
+                                    <div ng-repeat="fields in entryList track by $index" ng-switch
+                                         on="fields.fieldtype">
+                                        <div ng-switch-when="checkbox" class="entry-layer-header entry-list">
+                                            <div class='content-checkbox' data-drag="true"
+                                                 data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"
+                                                 ng-model="entryList"
+                                                 jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">
+                                                <label ng-bind="fields.ui_fieldname"
+                                                       class="field-label drag-input"
+                                                       data-fieldname="{{fields.fieldname}}"></label>
+                                                <ul>
+                                                    <li ng-repeat="opt in fields.fieldoptions track by $index"
+                                                        class="drag-input">
+                                                        <label class="drag-input">
+                                                            <input readonly type='checkbox'
+                                                                   name='radio' value='{{opt}}'>
+                                                            <span></span> {{opt}}
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-------------------------------dropArea-------------------------------->
+                <div class="drop-control" ng-model="dropControl">
+                    <div class="drop-control-header">
+                        <div class="drop-control-left">
+                            <div class="drop-control-header-div">
+                                <h6 class="drag-control-title"><i class="fa fa-level-down"></i>&nbsp&nbspDrop Area:
+                                </h6>
+                            </div>
+                        </div>
+
+                        <div class="drop-control-right">
+                            <div class="save-code" ng-click="saveForm(selectedPage)">
+                                <span><i class="fa fa-floppy-o" title="Save"></i>&nbsp;Save</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="drop-area" data-drop="true" ng-model='droppedList'
+                         jqyoui-droppable="{multiple:true}">
+
+                        <div ng-repeat="fields in droppedList track by $index" ng-switch
+                             on="fields.fieldtype" data-index="{{$index}}"
+                             class='content-text-input dropped-content' ng-show="fields">
+                            <i class="fa fa-times input-close" ng-click="remove($index)" title="Close"></i>
+                            <i class="fa fa-link input-link" ng-click="linkModel($index,fields.fieldtype)"
+                               title="Link"></i>
+                            <i class="fa fa-pencil input-edit"
+                               ng-click="editInput($event,$index,fields.ui_fieldname, fields.fieldvalue, fields.fielddate, fields.fieldtime, fields.fieldweek, fields.fieldnumber, fields.fieldtype, fields.fieldoptions, fields.projectname, fields.inputvalue)"
+                               title="Edit"></i>
+
+
+                            <label ng-if="fields.fieldtype != 'header' && fields.fieldtype != 'subheader' && fields.fieldtype != 'textbox'"
+                                   class="field-label drag-input"
+                                   data-fieldname="{{fields.fieldname}}">{{fields.ui_fieldname}}</label>
+
+                            <h3 ng-switch-when="header" class='content-input'>{{fields.fieldvalue}}</h3>
+
+                            <h4 ng-switch-when="subheader" class='content-input'>{{fields.fieldvalue}}</h4>
+
+                            <textarea ng-switch-when="textbox" class='text-box' required='' title=""
+                                      readonly>{{fields.fieldvalue}} </textarea>
+
+                            <input ng-switch-when="text" class='content-input'
+                                   placeholder='{{fields.fieldvalue}}' value="{{fields.inputvalue}}" type='text'
+                                   required='' readonly/>
+
+                            <select ng-switch-when="dropdown" name="fields.fieldname"
+                                    class="form-control dropped-dropdown"
+                                    title="" readonly>
+                                <option ng-repeat="opt in fields.fieldoptions">{{opt}}</option>
+                            </select>
+
+                            <textarea ng-switch-when="textarea" class='content-area' required='' title=""
+                                      placeholder='{{fields.fieldvalue}}'
+                                      readonly>{{fields.inputvalue}}</textarea>
+
+                            <input ng-switch-when="password" class='content-input'
+                                   placeholder='{{fields.fieldvalue}}' value="{{fields.inputvalue}}" type='password'
+                                   required='' readonly/>
+
+                            <input ng-switch-when="datetime" class='content-input' data-value="{{fields.fieldvalue}}"
+                                   type='datetime'
+                                   ng-model="fields.fielddate" title="" readonly/>
+
+                            <input ng-switch-when="datetime-local" class='content-input'
+                                   data-value="{{fields.fieldvalue}}"
+                                   type='datetime-local' ng-model="fields.fielddate" title="" readonly/>
+
+                            <input ng-switch-when="date" class='content-input' data-value="{{fields.fieldvalue}}"
+                                   type='date'
+                                   ng-model="fields.fielddate" title="" readonly/>
+
+                            <input ng-switch-when="month" class='content-input' data-value="{{fields.fieldvalue}}"
+                                   type='month'
+                                   ng-model="fields.fielddate" title="" readonly/>
+
+                            <input ng-switch-when="time" class='content-input' data-value="{{fields.fieldvalue}}"
+                                   type='time'
+                                   ng-model="fields.fieldtime" title="" readonly/>
+
+                            <input ng-switch-when="week" class='content-input' data-value="{{fields.fieldvalue}}"
+                                   type='week'
+                                   ng-model="fields.fieldweek" title="" readonly/>
+
+                            <input ng-switch-when="number" class='content-input' data-value="{{fields.fieldvalue}}"
+                                   type='number'
+                                   ng-model="fields.fieldnumber" title="" readonly/>
+
+                            <input ng-switch-when="email" class='content-input'
+                                   placeholder='{{fields.fieldvalue}}' value="{{fields.inputvalue}}" type='email'
+                                   required='' readonly/>
+
+                            <input ng-switch-when="url" class='content-input'
+                                   placeholder='{{fields.fieldvalue}}' value="{{fields.inputvalue}}" type='url'
+                                   required='' readonly/>
+
+                            <input ng-switch-when="tel" class='content-input'
+                                   placeholder='{{fields.fieldvalue}}' value="{{fields.inputvalue}}" type='tel'
+                                   required='' readonly/>
+
+                            <input ng-switch-when="color" class='content-input' type='color'
+                                   ng-model="fields.fieldvalue" title="" readonly/>
+
+                            <div ng-switch-when="radio" class="dropped-radios" readonly>
+                                <ul>
+                                    <li ng-repeat="opt in fields.fieldoptions track by $index">
+                                        <label>
+                                            <input type='radio' name='radio'
+                                                   value='{{opt}}'>
+                                            <span></span> {{opt}}
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div ng-switch-when="checkbox" class="dropped-checkbox" readonly>
+                                <ul>
+                                    <li ng-repeat="opt in fields.fieldoptions track by $index">
+                                        <label>
+                                            <input type='checkbox'
+                                                   name='radio' value='{{opt}}'>
+                                            <span></span> {{opt}}
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="drop-preview">
+                        <div ng-repeat="fields in droppedList track by $index" ng-switch
+                             on="fields.fieldtype" class='sortable'
+                             style="left:{{fields.leftposition}};top:{{fields.topposition}};width:{{fields.fieldwidth}};height:{{fields.fieldheight}}">
+
+                            <label ng-if="fields.fieldtype != 'header' && fields.fieldtype != 'subheader' && fields.fieldtype != 'textbox' "
+                                   class="field-label drag-input"
+                                   data-fieldname="{{fields.fieldname}}">{{fields.ui_fieldname}}</label>
+
+                            <h3 ng-switch-when="header" class='content-input-header'>{{fields.fieldvalue}}</h3>
+
+                            <h4 ng-switch-when="subheader" class='content-input-header'>{{fields.fieldvalue}}</h4>
+
+                            <textarea ng-switch-when="textbox" class='text-box' required='' title=""
+                                      readonly>{{fields.fieldvalue}}</textarea>
+
+                            <input ng-switch-when="text" class='content-input'
+                                   placeholder='{{fields.fieldvalue}}' value="{{fields.inputvalue}}" type='text'
+                                   required='' readonly/>
+
+                            <select ng-switch-when="dropdown" name="fields.fieldname"
+                                    class="form-control dropped-dropdown"
+                                    title="" readonly>
+                                <option ng-repeat="opt in fields.fieldoptions">{{opt}}</option>
+                            </select>
+
+                            <textarea ng-switch-when="textarea" class='content-area' required='' title=""
+                                      placeholder='{{fields.fieldvalue}}'
+                                      readonly>{{fields.inputvalue}}</textarea>
+
+                            <input ng-switch-when="password" class='content-input'
+                                   placeholder='{{fields.fieldvalue}}' value="{{fields.inputvalue}}" type='password'
+                                   required='' readonly/>
+
+                            <input ng-switch-when="datetime" class='content-input' data-value="{{fields.fieldvalue}}"
+                                   type='datetime'
+                                   ng-model="fields.fielddate" title="" readonly/>
+
+                            <input ng-switch-when="datetime-local" class='content-input'
+                                   data-value="{{fields.fieldvalue}}"
+                                   type='datetime-local'
+                                   ng-model="fields.fielddate" title="" readonly/>
+
+                            <input ng-switch-when="date" class='content-input' data-value="{{fields.fieldvalue}}"
+                                   type='date'
+                                   ng-model="fields.fielddate" title="" readonly/>
+
+                            <input ng-switch-when="month" class='content-input' data-value="{{fields.fieldvalue}}"
+                                   type='month'
+                                   ng-model="fields.fielddate" title="" readonly/>
+
+                            <input ng-switch-when="time" class='content-input' data-value="{{fields.fieldvalue}}"
+                                   type='time'
+                                   ng-model="fields.fieldtime" title="" readonly/>
+
+                            <input ng-switch-when="week" class='content-input' data-value="{{fields.fieldvalue}}"
+                                   type='week'
+                                   ng-model="fields.fieldweek" title="" readonly/>
+
+                            <input ng-switch-when="number" class='content-input' data-value="{{fields.fieldvalue}}"
+                                   type='number'
+                                   ng-model="fields.fieldnumber" title="" readonly/>
+
+                            <input ng-switch-when="email" class='content-input'
+                                   placeholder='{{fields.fieldvalue}}' value="{{fields.inputvalue}}" type='email'
+                                   required='' readonly/>
+
+                            <input ng-switch-when="url" class='content-input'
+                                   placeholder='{{fields.fieldvalue}}' value="{{fields.inputvalue}}" type='url'
+                                   required='' readonly/>
+
+                            <input ng-switch-when="tel" class='content-input'
+                                   placeholder='{{fields.fieldvalue}}' value="{{fields.inputvalue}}" type='tel'
+                                   required='' readonly/>
+
+                            <input ng-switch-when="color" class='content-input' type='color'
+                                   ng-model="fields.fieldvalue" title="" readonly/>
+
+                            <div ng-switch-when="radio" class="dropped-radios">
+                                <ul>
+                                    <li ng-repeat="opt in fields.fieldoptions track by $index">
+                                        <label>
+                                            <input type='radio' name='radio'
+                                                   value='{{opt}}' readonly>
+                                            <span></span> {{opt}}
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div ng-switch-when="checkbox" class="dropped-checkbox">
+                                <ul>
+                                    <li ng-repeat="opt in fields.fieldoptions track by $index">
+                                        <label>
+                                            <input type='checkbox'
+                                                   name='checkbox' value='{{opt}}' readonly>
+                                            <span></span> {{opt}}
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer id="footer">
+    <a href="http://www.thoughtgrains.com/">Thought Grains Solutions</a>
+    &copy; 2009-2016 All Rights Reserved.<br/>
+</footer>
+
+
+<link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+<!--<link rel="stylesheet" href="css/jquery-ui.min.css">-->
+<!--<link rel="stylesheet" href="css/jquery-ui.css">-->
+
+
+<!-- scripts-->
+<script src="js/app/layout.js"></script>
+<script src="js/lib/tinymce/tinymce.min.js"></script>
+<script src="js/lib/lodash.js"></script>
+<script src="js/lib/jquery-ui.min.js"></script>
+<!-- scripts-->
+

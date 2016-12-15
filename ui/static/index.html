@@ -1,0 +1,129 @@
+<!--- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///------------------------------------------------------------------------------------------------------------------///
+
+///                                   Copyright © 2015-2017 Thought Grains Solutions.                                ///
+
+///                                               All Rights Reserved.                                               ///
+
+///                                                                                                                  ///
+
+///             This software is the confidential and proprietary information of Thought Grains Solutions.           ///
+
+///                                          (Confidential Information)                                              ///
+
+///  --------------------------------------------------------------------------------------------------------------  ///
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///                                                                                                                  ///
+
+///   File Name   :   index.html                                                                                    ///
+
+///   Description :   index.html                                                                                    ///
+
+///                                                                                                                  ///
+
+///   Date :   10/07/2016                                          Created By  :   Thoughtgrains Solutions           ///
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --->
+
+<!DOCTYPE html>
+<html lang="en" ng-app="cmsApp">
+<head>
+    <meta charset="UTF-8">
+
+    <title>TG CMS</title>
+    <!--- stylesheets --->
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!--- stylesheets--->
+
+</head>
+<body>
+
+<div class="loader">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+</div>
+
+<header id="header">
+    <div class="navbar-header">
+        <a href="http://www.thoughtgrains.com/" target="_blank" class="navbar-brand">
+            <img class="img-responsive" src="./images/tg_logo_full45.png" alt="Thought Grains Solutions"
+                 title="Thought Grains Solutions"/>
+        </a></div>
+
+    <div class="col-sm-offset-5 col-sm-2 no-padding user-board">
+        <p class="welcome-text">Welcome <span id="username">Admin</span>&nbsp;<br>
+            <a class="logout" onclick="logout()">Logout</a>
+        </p>
+    </div>
+
+</header>
+
+
+<div ng-view class="view-wrapper"></div>
+
+<!--Confirmation Dialog Dom-->
+<div class="confirmation-model">
+    <div class="model-window">
+        <div class="confirm-title">?</div>
+        <div class="confirm-msg"></div>
+        <div class="confirm-actions">
+            <button id="actionCancel">Cancel</button>
+            <button id="actionConfirm">Yes</button>
+        </div>
+    </div>
+</div>
+
+<div class="alert-model">
+    <div class="alert-window">
+        <div class="alert-title">?</div>
+        <div class="alert-msg"></div>
+        <div class="alert-actions">
+            <button id="alertConfirm">OK</button>
+        </div>
+    </div>
+</div>
+<!--Confirmation Dialog Dom-->
+
+<script src="js/lib/jquery.min.js"></script>
+<script src="js/lib/jquery-ui.min.js"></script>
+<script src="js/lib/lodash.js"></script>
+<script src="js/lib/angular.min.js"></script>
+<script src="js/lib/angular-route.min.js"></script>
+<script src="js/lib/bootstrap.min.js"></script>
+<script src="js/lib/html5shiv.min.js"></script>
+<script src="js/lib/respond.min.js"></script>
+<script src="js/lib/angular-dragdrop.min.js"></script>
+<script src="js/lib/Stuk-jszip-73df7e1/dist/jszip.min.js"></script>
+<script src="js/lib/Stuk-jszip-73df7e1/vendor/FileSaver.js"></script>
+<script src="js/lib/ngDraggable.js"></script>
+<script src="js/app/router.js"></script>
+<script src="js/app/ajaxRequest.js"></script>
+<script src="js/app/pageScripts.js"></script>
+<script src="js/app/logout.js"></script>
+<script src="js/app/projectDownload.js"></script>
+
+<script src="js/app/controllers/layoutController.js"></script>
+<script src="js/app/controllers/projectsController.js"></script>
+<script src="js/app/controllers/addProjectController.js"></script>
+<script src="js/app/controllers/editProjectController.js"></script>
+<script src="js/app/controllers/modelsController.js"></script>
+<script src="js/app/controllers/addModelController.js"></script>
+<script src="js/app/controllers/editModelController.js"></script>
+<script src="js/app/controllers/entriesController.js"></script>
+<script src="js/app/controllers/addEntryController.js"></script>
+<script src="js/app/controllers/editEntryController.js"></script>
+
+<footer id="footer"><a href="http://www.thoughtgrains.com/" target="_blank">Thought Grains Solutions</a> &copy;
+    2009-2016 All Rights
+    Reserved.<br/></footer>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!--- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///------------------------------------------------------------------------------------------------------------------///
+
+///                                   Copyright © 2015-2017 Thought Grains Solutions.                                ///
+
+///                                               All Rights Reserved.                                               ///
+
+///                                                                                                                  ///
+
+///             This software is the confidential and proprietary information of Thought Grains Solutions.           ///
+
+///                                          (Confidential Information)                                              ///
+
+///  --------------------------------------------------------------------------------------------------------------  ///
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///                                                                                                                  ///
+
+///   File Name   :   EditModel.html                                                                                 ///
+
+///   Description :   EditModel.html                                                                                 ///
+
+///                                                                                                                  ///
+
+///   Date :   20/06/2016                                          Created By  :   Thoughtgrains Solutions           ///
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --->
+
+<div id="container">
+    <div class='breadcrumb-layers'>
+        <div class='inners'>
+            <ul class='cf'>
+                <li>
+                    <a class="projects" href="#projects"><span>1</span><span>Projects</span></a>
+                </li>
+                <li>
+                    <a class="models" href="#models"><span>2</span><span>Models</span></a>
+                </li>
+                <li class="active">
+                    <a class="active"><span>3</span><span>Edit Model</span></a>
+                </li>
+                <li>
+                    <a id="Layout" href="#layout"><span>4</span><span>Layout</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="content">
+        <div class="row">
+            <div class="col-sm-offset-1 col-sm-10">
+
+                <form action="" name="Addnewmodel" id="Addnewmodel" method="post" autocomplete="off">
+                    <span class="error col-sm-10">Could not edit the model</span>
+
+                    <div class="form-group">
+                        <label for="name">Model Name:</label>
+                        <input type="text" class="form-control" required="required"
+                               id="name" ng-model="modelname">
+                    </div>
+                </form>
+
+                <form class="input-append" autocomplete="off">
+                    <div class="input-appendText">
+                        <div id="DynamicFields" class="dynamic-class" ng-model="values"
+                             ng-repeat="fields in modelFields track by $index">
+                            <input class="form-control form-fields"
+                                   type="text" placeholder="Field Name" ng-keyup="checkDuplicate($index,$event)" data-items="8"
+                                   ng-model="fields.ui_fieldname"/>
+
+                            <select class="form-control form-fields"
+                                    ng-model="fields.fieldtype" title="">
+                                <option value="">Select</option>
+                                <option ng-repeat="types in typeList">{{types}}</option>
+                            </select>
+
+                            <select class="form-control form-fields"
+                                    ng-model="fields.fielddatatype" title="">
+                                <option value="">Select</option>
+                                <option ng-repeat="dataType in dataTypeList">{{dataType}}</option>
+                            </select>
+
+                            <input class="form-control form-fields" type="text"
+                                   placeholder="Field Options" ng-model="fields.fieldoptions"/>
+
+                            <select class="form-control form-fields"
+                                    ng-model="fields.fieldrequired" title="">
+                                <option value="">Is field required?</option>
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                            </select>
+
+                            <button ng-if="fields.edit" id="b1" class="btn add-more" type="button"
+                                    ng-click="addMore('next')">+
+                            </button>
+                            <button ng-if="!fields.edit && fields.edit !== undefined" class="btn btn-danger add-more"
+                                    type="button"
+                                    ng-click="removeField($index)">-
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="form-group" style="margin-top:10px;float:left;">
+                    <input type="hidden" value="1" name="ProjectID"/>
+                    <input type="hidden" value="1" name="count" id="count"/>
+                    <button type="button" id="Editmodel" class="btn btn-primary" ng-click="editSubmit()">Submit
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="cancel-btn"
+                            onclick="window.location.href='#models'">Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer id="footer">
+    <a href="http://www.thoughtgrains.com/">Thought Grains Solutions</a>
+    &copy; 2009-2016 All Rights Reserved.<br/>
+</footer>
+
+<!-- scripts-->
+<script src="js/app/editModel.js"></script>
+<!-- scripts-->

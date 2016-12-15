@@ -1,0 +1,90 @@
+<!--- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///------------------------------------------------------------------------------------------------------------------///
+
+///                                   Copyright © 2015-2017 Thought Grains Solutions.                                ///
+
+///                                               All Rights Reserved.                                               ///
+
+///                                                                                                                  ///
+
+///             This software is the confidential and proprietary information of Thought Grains Solutions.           ///
+
+///                                          (Confidential Information)                                              ///
+
+///  --------------------------------------------------------------------------------------------------------------  ///
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///                                                                                                                  ///
+
+///   File Name   :   Entries.html                                                                                   ///
+
+///   Description :   Entries.html                                                                                   ///
+
+///                                                                                                                  ///
+
+///   Date :   24/06/2016                                          Created By  :   Thoughtgrains Solutions           ///
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --->
+
+<div id="container">
+    <div class='breadcrumb-layers'>
+        <div class='inners'>
+            <ul class='cf'>
+                <li>
+                    <a class="projects" href="#projects"><span>1</span><span>Projects</span></a>
+                </li>
+                <li>
+                    <a class="models" href="#models"><span>2</span><span>Models</span></a>
+                </li>
+                <li>
+                    <a class="active"><span>3</span><span>Entries</span></a>
+                </li>
+                <li>
+                    <a id="Layout" href="#layout"><span>4</span><span>Layout</span></a>
+                </li>
+                <li class="download-tab">
+                    <a><span>5</span><span>Download</span></a>
+                    <ul class="download-tab-ul">
+                        <li ng-click="downloadProject()">Database</li>
+                        <li ng-click="uiDownload()">UI</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="content">
+        <div class="col-sm-offset-1 col-sm-10 content-top">
+            <div class="col-sm-12 ">
+                <a href="" class="new-buttons" ng-click="addEntry()">Add new Entry</a>
+            </div>
+            <table border="1" class="table" id="EntryList">
+                <tr>
+                    <td>Entry ID</td>
+                    <th>Entries</th>
+                    <th>Action</th>
+                </tr>
+
+                <tr ng-repeat="entries in entryList track by $index">
+                    <td>{{$index + 1}}</td>
+                    <td>{{entries.allEntries}}</td>
+                    <td>
+                        <a href="" ng-click="editEntries(entries.iid)">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="" class="delete-button" ng-click="deleteEntries(entries.iid)">Delete</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<footer id="footer">
+    <a href="http://www.thoughtgrains.com/">Thought Grains Solutions</a>
+    &copy; 2009-2016 All Rights Reserved.<br/>
+</footer>
+
+<!-- scripts-->
+<script src="js/app/entries.js"></script>
+<!-- scripts-->

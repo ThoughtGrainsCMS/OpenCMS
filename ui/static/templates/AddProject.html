@@ -1,0 +1,117 @@
+<!--- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///------------------------------------------------------------------------------------------------------------------///
+
+///                                   Copyright © 2015-2017 Thought Grains Solutions.                                ///
+
+///                                               All Rights Reserved.                                               ///
+
+///                                                                                                                  ///
+
+///             This software is the confidential and proprietary information of Thought Grains Solutions.           ///
+
+///                                          (Confidential Information)                                              ///
+
+///  --------------------------------------------------------------------------------------------------------------  ///
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///                                                                                                                  ///
+
+///   File Name   :   AddProject.html                                                                                ///
+
+///   Description :   AddProject.html                                                                                ///
+
+///                                                                                                                  ///
+
+///   Date :   12/06/2016                                          Created By  :   Thoughtgrains Solutions           ///
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --->
+
+<div id="container">
+    <div class='breadcrumb-layers'>
+        <div class='inners'>
+            <ul class='cf'>
+                <li>
+                    <a class="projects" href="#projects"><span>1</span><span>Projects</span></a>
+                </li>
+                <li class="active">
+                    <a class="active"><span>2</span><span>Add Project</span></a>
+                </li>
+                <li>
+                    <a id="Layout" href="#layout"><span>3</span><span>Layout</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="content">
+        <div class="row">
+            <div class="col-sm-offset-1 col-sm-10 content-top">
+
+                <form name='addNewProject' id='Addnewproject' autocomplete="off" enctype='multipart/form-data' action=''
+                      method='POST'>
+                    <span class="error">&nbsp;</span>
+
+                    <div class="form-group">
+                        <label for="uiname">Project Name:</label>
+                        <input type="text" ng-model="uiname" class="form-control" placeholder="Project Name"
+                               name="ProjectName" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="dbname">Database Name:</label>
+                        <input type="text" ng-model="dbname" class="form-control" placeholder="Database Name"
+                               name="DatabaseName" onkeypress="return onlyAlphabets(event,this);" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Project Status:</label>
+                        <select class="form-control" ng-model="status" required title="Project Status">
+                            <option value="">Please select</option>
+                            <option value="On going">On going</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Cancelled">Cancelled</option>
+                            <option value="Pipeline">Pipeline</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="startdate">Project Start date:</label>
+                        <input type="date" class="form-control" placeholder="Project Start date" id="startdate"
+                               required>
+                    </div>
+                    <div class="form-group">
+                        <label for="enddate">Project Completion date:</label>
+                        <input type="date" class="form-control" placeholder="Project Completion date" id="enddate">
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Project Author:</label>
+                        <input type="text" ng-model="author" class="form-control" placeholder="Project Author" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="details">Project Details:</label>
+                        <textarea class="form-control" rows="5" id="details"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" ng-click="submitProject()" class="btn btn-primary">
+                            Submit
+                        </button>
+                        <button type="button" class="btn btn-primary" id="cancel-btn"
+                                onclick="window.location.href='#projects'">Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer id="footer">
+    <a href="http://www.thoughtgrains.com/">Thought Grains Solutions</a>
+    &copy; 2009-2016 All Rights Reserved.<br/>
+</footer>
+
+
+<!-- scripts-->
+<script src="js/app/addProject.js"></script>
+<script src="js/lib/tinymce/tinymce.min.js"></script>
+<script>tinymce.init({selector: 'textarea'});</script>
+<!-- scripts-->

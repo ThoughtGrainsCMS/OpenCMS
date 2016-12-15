@@ -1,0 +1,180 @@
+<!--- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///------------------------------------------------------------------------------------------------------------------///
+
+///                                   Copyright © 2015-2017 Thought Grains Solutions.                                ///
+
+///                                               All Rights Reserved.                                               ///
+
+///                                                                                                                  ///
+
+///             This software is the confidential and proprietary information of Thought Grains Solutions.           ///
+
+///                                          (Confidential Information)                                              ///
+
+///  --------------------------------------------------------------------------------------------------------------  ///
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///                                                                                                                  ///
+
+///   File Name   :   EditEntry.html                                                                                 ///
+
+///   Description :   EditEntry.html                                                                                 ///
+
+///                                                                                                                  ///
+
+///   Date :   29/06/2016                                          Created By  :   Thoughtgrains Solutions           ///
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --->
+
+<div id="container">
+    <div class='breadcrumb-layers'>
+        <div class='inners'>
+            <ul class='cf'>
+                <li>
+                    <a class="projects" href="#projects"><span>1</span><span>Projects</span></a>
+                </li>
+                <li>
+                    <a class="models" href="#models"><span>2</span><span>Models</span></a>
+                </li>
+                <li>
+                    <a class="entries" href="#entries"><span>3</span><span>Entries</span></a>
+                </li>
+                <li class="active">
+                    <a class="active"><span>4</span><span>Edit Entry</span></a>
+                </li>
+                <li>
+                    <a id="Layout" href="#layout"><span>5</span><span>Layout</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="content">
+        <div class="row">
+            <div class="col-sm-offset-1 col-sm-10 content-top">
+
+                <form name='EditEntry' id='entryForm' autocomplete="off"
+                      enctype='multipart/form-data' action='' method='POST'>
+                    <div id="Formfields">
+                        <div class="form-group" ng-repeat="fields in modelFields" ng-switch
+                             on="fields.fieldtype">
+
+                            <label ng-bind="fields.ui_fieldname" data-fieldname="{{ fields.fieldname }}"></label>
+
+                            <input ng-switch-when="header" type="text" class="form-control"
+                                   ng-model="fields.fieldvalue" name="fields.fieldname"
+                                   title="" data-fielddatatype="{{ fields.fielddatatype }}">
+
+                            <input ng-switch-when="subheader" type="text" class="form-control"
+                                   ng-model="fields.fieldvalue" name="fields.fieldname"
+                                   title="" data-fielddatatype="{{ fields.fielddatatype }}">
+
+                            <input ng-switch-when="textbox" type="text" class="form-control"
+                                   ng-model="fields.fieldvalue" name="fields.fieldname"
+                                   title="" data-fielddatatype="{{ fields.fielddatatype }}">
+
+                            <input ng-switch-when="text" type="text" class="form-control"
+                                   ng-model="fields.fieldvalue" name="fields.fieldname"
+                                   title="" data-fielddatatype="{{ fields.fielddatatype }}">
+
+                            <input ng-switch-when="password" type="password" class="form-control"
+                                   name="fields.fieldname"
+                                   ng-model="fields.fieldvalue" title=""
+                                   data-fielddatatype="{{ fields.fielddatatype }}">
+
+                            <input ng-switch-when="datetime" type="datetime"
+                                   name="fields.fieldname" ng-value="fields.fieldvalue"
+                                   class="form-control" placeholder="" data-fielddatatype="{{ fields.fielddatatype }}">
+
+                            <input ng-switch-when="datetime-local" type="datetime-local"
+                                   name="fields.fieldname" ng-value="fields.fieldvalue"
+                                   class="form-control" placeholder="" data-fielddatatype="{{ fields.fielddatatype }}">
+
+                            <input ng-switch-when="date" type="date" class="form-control" placeholder=""
+                                   ng-value="fields.fieldvalue" name="fields.fieldname"
+                                   data-fielddatatype="{{ fields.fielddatatype }}">
+
+                            <input ng-switch-when="month" type="month" class="form-control"
+                                   ng-value="fields.fieldvalue" name="fields.fieldname"
+                                   placeholder="" data-fielddatatype="{{ fields.fielddatatype }}">
+
+                            <input ng-switch-when="time" type="time" class="form-control" placeholder=""
+                                   ng-value="fields.fieldvalue" name="fields.fieldname"
+                                   data-fielddatatype="{{ fields.fielddatatype }}">
+
+                            <input ng-switch-when="week" type="week" class="form-control" placeholder=""
+                                   ng-value="fields.fieldvalue" name="fields.fieldname"
+                                   data-fielddatatype="{{ fields.fielddatatype }}">
+
+                            <input ng-switch-when="number" type="number" class="form-control"
+                                   name="fields.fieldname"
+                                   ng-value="fields.fieldvalue" title=""
+                                   data-fielddatatype="{{ fields.fielddatatype }}">
+
+                            <input ng-switch-when="email" type="email" class="form-control"
+                                   name="fields.fieldname"
+                                   ng-model="fields.fieldvalue" title=""
+                                   data-fielddatatype="{{ fields.fielddatatype }}">
+
+                            <input ng-switch-when="url" type="url" class="form-control" ng-model="fields.fieldvalue"
+                                   name="fields.fieldname" title="" data-fielddatatype="{{ fields.fielddatatype }}">
+
+                            <input ng-switch-when="tel" type="tel" class="form-control" ng-model="fields.fieldvalue"
+                                   name="fields.fieldname" title="" data-fielddatatype="{{ fields.fielddatatype }}">
+
+                            <input ng-switch-when="color" type="color" class="form-control"
+                                   name="fields.fieldname"
+                                   ng-model="fields.fieldvalue" title=""
+                                   data-fielddatatype="{{ fields.fielddatatype }}">
+
+                            <textarea ng-switch-when="textarea" class="form-control"
+                                      name="fields.fieldname" ng-model="fields.fieldvalue" title=""
+                                      data-fielddatatype="{{ fields.fielddatatype }}"></textarea>
+
+                            <label ng-switch-when="radio" class="radio-inline"
+                                   ng-repeat="opt in fields.fieldoptions"
+                                   data-fielddatatype="{{ fields.fielddatatype }}"><input name="fields.fieldname"
+                                                                                          type="radio" class="Radio"
+                                                                                          ng-model="radios">{{ opt }}
+                            </label>
+
+                            <label ng-switch-when="checkbox" class="checkbox-inline"
+                                   ng-repeat="opt in fields.fieldoptions"
+                                   data-fielddatatype="{{ fields.fielddatatype }}"><input name="fields.fieldname"
+                                                                                          type="checkbox" class="Check"
+                                                                                          ng-model="checks">{{ opt }}
+                            </label>
+
+                            <select ng-switch-when="dropdown" name="fields.fieldname" class="form-control" title=""
+                                    data-fielddatatype="{{ fields.fielddatatype }}">
+                                <option ng-repeat="opt in fields.fieldoptions">{{ opt }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="form-group" style="margin-top:10px;float:left;">
+                    <input type="hidden" value="1" name="ProjectID"/>
+                    <input type="hidden" value="1" name="count" id="count"/>
+                    <button type="button" id="Editentry" class="btn btn-primary" ng-click="submitEntry()">Submit
+                    </button>
+                    <button type="button" class="btn btn-primary" id="cancel-btn"
+                            onclick="window.location.href='#entries'">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer id="footer">
+    <a href="http://www.thoughtgrains.com/">Thought Grains Solutions</a>
+    &copy; 2009-2016 All Rights Reserved.<br/>
+</footer>
+
+<!-- scripts-->
+<script src="js/app/editEntry.js"></script>
+<!-- scripts-->

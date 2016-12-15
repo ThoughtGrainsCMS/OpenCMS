@@ -1,0 +1,4 @@
+{
+  "cassandra_HOST": "10.10.1.10",
+  "server_IP": "localhost"
+}
